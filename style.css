@@ -1,0 +1,40 @@
+.container{
+	width: 710px;
+}
+
+body {
+	background-color:#cff;
+}
+
+section{
+  margin-top: 0.2em;
+  font-size: 120%;
+  padding: 20px;
+  background: #fff;
+	margin-left:100px;
+	-
+}
+
+header {
+  padding-top: 20px;
+}
+
+div #error{
+	background-color:red;
+	width:250;
+	text-align:center;
+}
+
+div #success{
+	background-color:lime;
+	width:250;
+	text-align:center;
+}
+
+/* Round corners */
+
+.round {
+  -moz-border-radius:    20px;
+  -webkit-border-radius: 20px;
+  border-radius:         20px;
+}

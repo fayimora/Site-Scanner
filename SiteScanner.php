@@ -6,7 +6,7 @@
 	}
 error_reporting(E_ALL & ~E_NOTICE);
 	if(isset($_POST['submit']) )
-	{
+	{	
 		if(isset($_POST['site']) && isset($_POST['options']))
 		{
 			$site = $_POST['site'];
@@ -15,7 +15,9 @@ error_reporting(E_ALL & ~E_NOTICE);
 
 			if ($option == "all"){
 				full($site); echo "here";}
-			else
+			else if($_POST['options'] == "1")
+				$errors[] = "Please select an operation!";
+			else	
 				$option();
 		}else{
 			$errors[] = "All fields are required!";
@@ -42,10 +44,10 @@ error_reporting(E_ALL & ~E_NOTICE);
 					Enter your site: <input type="text" name="site" value="<?php showValue($site); ?>"  /><br /><br />
 					What do you want to check for? 
 					<select name = "options">
-						<option>Select ..</option>
-						<option value = "xss"> XSS </option>
-						<option value="sql">SQL</option>
-						<option value="all">ALL</option>
+						<option value="1">Select ..</option>
+						<option value = "xss" <?php if(isset($option) && $option == "xss"){echo "selected=\"selected\"";} ?> > XSS </option>
+						<option value="sql" <?php if(isset($option) && $option == "sql"){echo "selected=\"selected\"";} ?> >SQL</option>
+						<option value="all" <?php if(isset($option) && $option == "all"){echo "selected=\"selected\"";} ?> >ALL</option>
 					</select><br/><br/>
 					<input type="submit" name="submit" value="Start Scan!" />
 				</form>

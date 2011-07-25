@@ -1,6 +1,6 @@
 <?php
 
-$msgs = array();
+
 function full($site) {
     sql($site, 1);
     xss($site, 1);
@@ -10,8 +10,7 @@ function full($site) {
 
 function xss($site = '', $full = '0') {
    
-		
-        
+	
         $request = parse_url($site);
         $msgs[] = "[-] URL : $request[host]\n";
         $msgs[] = "[-] Path: $request[path]\n";

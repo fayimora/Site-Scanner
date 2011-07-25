@@ -1,6 +1,7 @@
 <?php
 	require ('functions.php');
 	$errors = array();
+	$msgs = array();
 	function showValue($from){
 		if(isset($from)) echo $from; 
 	}
@@ -13,8 +14,8 @@ error_reporting(E_ALL & ~E_NOTICE);
 			$option = $_POST['options'];
 			echo "Site is ".$site."\n"."You chose - ".$option."\n";
 
-			if ($option == "all"){
-				full($site); echo "here";}
+			if ($option == "all")
+				full($site); 
 			else if($_POST['options'] == "1")
 				$errors[] = "Please select an operation!";
 			else	
@@ -63,11 +64,14 @@ error_reporting(E_ALL & ~E_NOTICE);
 				</div>
 				<div id="success">
 				<?php	
-					if(isset($msgs)){
+					if(isset($msgs)){ 
 						foreach ($msgs as $msg){
 								echo $msg;
 						} 
+					}else{
+						print "here in here";
 					}
+					
 					
 				?>
 				</div>
